@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.folioreader.ui.activity.FolioActivity">
 
-    <item
+<!-- xoxo -->
+    <!-- <item
         android:id="@+id/itemBookmark"
         android:icon="@drawable/ic_baseline_bookmark_border_24"
         android:title="@string/menu_item_config"
         app:showAsAction="ifRoom"
-        tools:showAsAction="always" />
+        tools:showAsAction="always" /> -->
 
     <item
         android:id="@+id/itemSearch"
@@ -18,7 +19,7 @@
         app:showAsAction="ifRoom"
         tools:showAsAction="always" />
 
-    <item
+    <!-- <item
         android:id="@+id/itemConfig"
         android:icon="@drawable/icon_font"
         android:title="@string/menu_item_config"
@@ -32,6 +33,6 @@
         android:title="@string/menu_item_tts"
         android:visible="false"
         app:showAsAction="ifRoom"
-        tools:showAsAction="always" />
+        tools:showAsAction="always" /> -->
 
 </menu>

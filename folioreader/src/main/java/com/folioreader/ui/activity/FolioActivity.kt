@@ -363,10 +363,11 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
 
         // Update toolbar colors
         createdMenu?.let { m ->
-            UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemBookmark).icon)
+            // xoxo
+            // UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemBookmark).icon)
             UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemSearch).icon)
-            UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemConfig).icon)
-            UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemTts).icon)
+            // UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemConfig).icon)
+            // UiUtil.setColorIntToDrawable(config.themeColor, m.findItem(R.id.itemTts).icon)
         }
     }
 
@@ -388,10 +389,11 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
 
         // Update toolbar colors
         createdMenu?.let { m ->
-            UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemBookmark).icon)
+            //xoxo
+            // UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemBookmark).icon)
             UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemSearch).icon)
-            UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemConfig).icon)
-            UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemTts).icon)
+            // UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemConfig).icon)
+            // UiUtil.setColorIntToDrawable(config.nightThemeColor, m.findItem(R.id.itemTts).icon)
         }
     }
 
@@ -407,22 +409,22 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
             menuInflater.inflate(R.menu.menu_main, menu)
 
             val config = AppUtil.getSavedConfig(applicationContext)!!
-            UiUtil.setColorIntToDrawable(
-                    config.currentThemeColor,
-                    menu.findItem(R.id.itemBookmark).icon
-            )
+            // UiUtil.setColorIntToDrawable(
+            //         config.currentThemeColor,
+            //         menu.findItem(R.id.itemBookmark).icon
+            // )
             UiUtil.setColorIntToDrawable(
                     config.currentThemeColor,
                     menu.findItem(R.id.itemSearch).icon
             )
-            UiUtil.setColorIntToDrawable(
-                    config.currentThemeColor,
-                    menu.findItem(R.id.itemConfig).icon
-            )
-            UiUtil.setColorIntToDrawable(config.currentThemeColor, menu.findItem(R.id.itemTts).icon)
+            // UiUtil.setColorIntToDrawable(
+            //         config.currentThemeColor,
+            //         menu.findItem(R.id.itemConfig).icon
+            // )
+            // UiUtil.setColorIntToDrawable(config.currentThemeColor, menu.findItem(R.id.itemTts).icon)
 
-            if (!config.isShowTts)
-                menu.findItem(R.id.itemTts).isVisible = false
+            // if (!config.isShowTts)
+            //     menu.findItem(R.id.itemTts).isVisible = false
         } catch (e: Exception) {
             Log.e("FOLIOREADER", e.message);
         }
@@ -636,7 +638,7 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
 
         if (streamerUri == null) {
             streamerUri =
-                Uri.parse(String.format(STREAMER_URL_TEMPLATE, LOCALHOST, portNumber, bookFileName))
+                Uri.parse(String.format(Locale.US,STREAMER_URL_TEMPLATE, LOCALHOST, portNumber, bookFileName))
         }
         return streamerUri.toString()
     }
