@@ -442,44 +442,44 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
             startContentHighlightActivity()
             return true
         }
-        else if(itemId == R.id.itemBookmark){
-            val readLocator = currentFragment!!.getLastReadLocator()
-            Log.v(LOG_TAG, "-> onOptionsItemSelected 'if' -> bookmark")
+        // else if(itemId == R.id.itemBookmark){
+        //     val readLocator = currentFragment!!.getLastReadLocator()
+        //     Log.v(LOG_TAG, "-> onOptionsItemSelected 'if' -> bookmark")
 
-                bookmarkReadLocator = readLocator;
-                val localBroadcastManager = LocalBroadcastManager.getInstance(this)
-                val intent = Intent(FolioReader.ACTION_SAVE_READ_LOCATOR)
-                intent.putExtra(FolioReader.EXTRA_READ_LOCATOR, readLocator as Parcelable?)
-                localBroadcastManager.sendBroadcast(intent)
-                val dialog = Dialog(this, R.style.DialogCustomTheme)
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                dialog.setContentView(R.layout.dialog_bookmark)
-                dialog.show()
-                dialog.setCanceledOnTouchOutside(true)
-                dialog.setOnCancelListener{
-                    Toast.makeText(this,
-                            "please enter a Bookmark name and then press Save",
-                            Toast.LENGTH_SHORT).show()
-                }
-                dialog.findViewById<View>(R.id.btn_save_bookmark).setOnClickListener {
-                    val name = (dialog.findViewById<View>(R.id.bookmark_name) as EditText).text.toString()
-                    if (!TextUtils.isEmpty(name)) {
-                        val simpleDateFormat = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
-                        val id =  BookmarkTable(this).insertBookmark(mBookId, simpleDateFormat.format(Date()), name, bookmarkReadLocator!!.toJson().toString());
-                        Toast.makeText(this,
-                                getString(R.string.book_mark_success),
-                                Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this,
-                                "please Enter a Bookmark name and then press Save",
-                                Toast.LENGTH_SHORT).show()
-                    }
-                    dialog.dismiss()
-                }
+        //         bookmarkReadLocator = readLocator;
+        //         val localBroadcastManager = LocalBroadcastManager.getInstance(this)
+        //         val intent = Intent(FolioReader.ACTION_SAVE_READ_LOCATOR)
+        //         intent.putExtra(FolioReader.EXTRA_READ_LOCATOR, readLocator as Parcelable?)
+        //         localBroadcastManager.sendBroadcast(intent)
+        //         val dialog = Dialog(this, R.style.DialogCustomTheme)
+        //         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        //         dialog.setContentView(R.layout.dialog_bookmark)
+        //         dialog.show()
+        //         dialog.setCanceledOnTouchOutside(true)
+        //         dialog.setOnCancelListener{
+        //             Toast.makeText(this,
+        //                     "please enter a Bookmark name and then press Save",
+        //                     Toast.LENGTH_SHORT).show()
+        //         }
+        //         dialog.findViewById<View>(R.id.btn_save_bookmark).setOnClickListener {
+        //             val name = (dialog.findViewById<View>(R.id.bookmark_name) as EditText).text.toString()
+        //             if (!TextUtils.isEmpty(name)) {
+        //                 val simpleDateFormat = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
+        //                 val id =  BookmarkTable(this).insertBookmark(mBookId, simpleDateFormat.format(Date()), name, bookmarkReadLocator!!.toJson().toString());
+        //                 Toast.makeText(this,
+        //                         getString(R.string.book_mark_success),
+        //                         Toast.LENGTH_SHORT).show()
+        //             } else {
+        //                 Toast.makeText(this,
+        //                         "please Enter a Bookmark name and then press Save",
+        //                         Toast.LENGTH_SHORT).show()
+        //             }
+        //             dialog.dismiss()
+        //         }
 
 
-            return true
-        }
+        //     return true
+        // }
         else if (itemId == R.id.itemSearch) {
             Log.v(LOG_TAG, "-> onOptionsItemSelected -> " + item.title)
             if (searchUri == null)
@@ -492,16 +492,17 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
             startActivityForResult(intent, RequestCode.SEARCH.value)
             return true
 
-        } else if (itemId == R.id.itemConfig) {
-            Log.v(LOG_TAG, "-> onOptionsItemSelected -> " + item.title)
-            showConfigBottomSheetDialogFragment()
-            return true
+        } 
+        // else if (itemId == R.id.itemConfig) {
+        //     Log.v(LOG_TAG, "-> onOptionsItemSelected -> " + item.title)
+        //     showConfigBottomSheetDialogFragment()
+        //     return true
 
-        } else if (itemId == R.id.itemTts) {
-            Log.v(LOG_TAG, "-> onOptionsItemSelected -> " + item.title)
-            showMediaController()
-            return true
-        }
+        // } else if (itemId == R.id.itemTts) {
+        //     Log.v(LOG_TAG, "-> onOptionsItemSelected -> " + item.title)
+        //     showMediaController()
+        //     return true
+        // }
 
         return super.onOptionsItemSelected(item)
     }
